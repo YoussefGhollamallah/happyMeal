@@ -1,0 +1,11 @@
+{
+    "utilisateurs" : [
+        {
+            "id" : 1,
+            "nom": "ghollamallah",
+            "prenom": "youssef",
+            "email": "youssef.gh@laplateforme.io",
+            "password": "root"
+        }
+    ]
+}
