@@ -25,3 +25,47 @@ body {
     background-color: var(--bg-color);
     
 }
+
+.nav-logo {
+    height: 80px;
+    width: auto;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.jus-cont-center {
+    justify-content:center ;
+}
+
+.gap-2 {
+    gap: 10px;
+}
+
+.jus-cont-sb {
+    justify-content: space-between ;
+}
+
+.al-items-center {
+    align-items: center;
+}
+
+/* header */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100vw;
+}
+
+.navlink {
+    color: black;
+    text-decoration: none;
+}
+
+nav > ul > li {
+    list-style: none;
+}
