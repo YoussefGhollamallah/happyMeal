@@ -2,6 +2,7 @@
 
 :root {
     --bg-color: #F4E8E8;
+    --primary-color: #516079;
 }
 
 .eb-garamond-font {
@@ -28,44 +29,23 @@ body {
 
 .nav-logo {
     height: 80px;
+    border-radius: 50%;
     width: auto;
 }
 
-.d-flex {
-    display: flex;
-}
-
-.jus-cont-center {
-    justify-content:center ;
-}
-
-.gap-2 {
-    gap: 10px;
-}
-
-.jus-cont-sb {
-    justify-content: space-between ;
-}
-
-.al-items-center {
-    align-items: center;
+.copyright {
+    height: 20px;
 }
 
 /* header */
 
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    width: 100vw;
+header,footer ,nav{
+    min-height: 100px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
 }
 
-.navlink {
-    color: black;
-    text-decoration: none;
-}
-
-nav > ul > li {
-    list-style: none;
+main {
+    height: 100vh;
 }
