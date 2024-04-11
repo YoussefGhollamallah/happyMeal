@@ -30,3 +30,4 @@ export function getIngredientsRecette(recettes) {
 export function getEtapesRecette(recettes) {
     return recettes.map(recette => recette.etapes);
 }
+

@@ -25,9 +25,26 @@ fetchRecettes()
             }
         });
 
+        recettes.forEach(recette => {
+            recette.favori = false;
+        })
+
         afficherRecettes(recettes, container, pageActuelle);
     })
     .catch(error => console.error(error));
+
+
+function toggleFavori(recette, boutonFavori) {
+    recette.favori = !recette.favori;
+
+    afficherRecettes(recette, container, pageActuelle)
+    if (recette.favori) {
+        boutonFavori.classList.add("favori");
+    } else {
+        boutonFavori.classList.remove("favori");
+    }
+}
+
 
 function afficherRecettes(recettes, container, page) {
     container.innerHTML = "";
@@ -36,6 +53,21 @@ function afficherRecettes(recettes, container, page) {
     const recettesAffichees = recettes.slice(startIndex, endIndex);
 
     recettesAffichees.forEach(recette => {
+
+        const boutonFavori = document.createElement("button");
+        boutonFavori.innerText = recette.favori ? "Retirer des favoris" : "Ajouter aux favoris";
+        
+        boutonFavori.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            toggleFavori(recette, event.target);
+            return false;
+        });
+
+        if (recette.favori) {
+            boutonFavori.classList.add("favori");
+        }
+
         const titreRecette = document.createElement("h2");
         titreRecette.innerText = recette.nom ?? "pas de titre pour le moment";
 
@@ -44,6 +76,8 @@ function afficherRecettes(recettes, container, page) {
 
         const paraTemps = document.createElement("p");
         paraTemps.innerText = recette.temps_preparation ?? "temps de préparation non spécifié";
+
+    
 
         const listeIngredients = document.createElement("ul");
         recette.ingredients.forEach(ingredient => {
@@ -61,6 +95,7 @@ function afficherRecettes(recettes, container, page) {
 
         const article = document.createElement("article");
         article.appendChild(titreRecette);
+        article.appendChild(boutonFavori)
         article.appendChild(paracategorie);
         article.appendChild(paraTemps);
         article.appendChild(listeIngredients);
