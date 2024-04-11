@@ -48,10 +48,16 @@ header,footer ,nav{
 
 main {
     min-height: 100vh;
+    padding-bottom: 20px;
 }
 
 .recette {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+}
+
+.favori {
+    background-color: green;
+    color: white; /* Ajoutez cette ligne si vous souhaitez également changer la couleur du texte */
 }
