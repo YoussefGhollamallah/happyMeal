@@ -47,5 +47,11 @@ header,footer ,nav{
 }
 
 main {
-    height: 100vh;
+    min-height: 100vh;
+}
+
+.recette {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
