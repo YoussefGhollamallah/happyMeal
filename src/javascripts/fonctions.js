@@ -18,11 +18,15 @@ export function getCategories(recettes) {
 }
 
 export function getTempsRecettes(recettes) {
-    return recettes.map(recette => recette.temp_preparation )
+    return recettes.map(recette => recette.temps_preparation )
 }
 
 export function getIngredientsRecette(recettes) {
     return recettes.map(recette => {
         return recette.ingredients.map(ingredient => `${ingredient.nom}: ${ingredient.quantite}`);
     });
+}
+
+export function getEtapesRecette(recettes) {
+    return recettes.map(recette => recette.etapes);
 }
