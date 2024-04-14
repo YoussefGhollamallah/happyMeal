@@ -55,25 +55,28 @@ function afficherRecettes(recettes, container, page) {
     recettesAffichees.forEach(recette => {
 
         const boutonFavori = document.createElement("button");
+        boutonFavori.style.padding = "5px 10px"
+        boutonFavori.style.borderRadius = "5px"
         boutonFavori.innerText = recette.favori ? "Retirer des favoris" : "Ajouter aux favoris";
         
         boutonFavori.addEventListener("click", (event) => {
             event.preventDefault();
             event.stopPropagation();
             toggleFavori(recette, event.target);
+            location.reload()
             return false;
         });
 
         if (recette.favori) {
             boutonFavori.classList.add("favori");
         }
-
+        
         const titreRecette = document.createElement("h2");
         titreRecette.innerText = recette.nom ?? "pas de titre pour le moment";
 
         const paracategorie = document.createElement("p");
         paracategorie.innerText = recette.categorie ?? "pas de catégorie pour le moment";
-
+        
         const paraTemps = document.createElement("p");
         paraTemps.innerText = recette.temps_preparation ?? "temps de préparation non spécifié";
 
@@ -92,7 +95,7 @@ function afficherRecettes(recettes, container, page) {
             listItem.innerText = `${index + 1}. ${etape}`;
             listeEtapes.appendChild(listItem);
         });
-
+        
         const article = document.createElement("article");
         article.appendChild(titreRecette);
         article.appendChild(boutonFavori)
@@ -102,7 +105,7 @@ function afficherRecettes(recettes, container, page) {
         article.appendChild(listeEtapes);
         container.appendChild(article);
     });
-
+    
     prevButton.disabled = page === 1;
     nextButton.disabled = page === totalPages;
 }
